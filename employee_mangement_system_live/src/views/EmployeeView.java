@@ -17,6 +17,7 @@ public class EmployeeView {
         //System.out.println("3. View Employee by Id");
         System.out.println("3. Delete Employee ");
         System.out.println("4. Update Employee");
+        System.out.println("5. Assign Department");
         System.out.println("5. Logout");
         System.out.println("Enter your choice");
     }

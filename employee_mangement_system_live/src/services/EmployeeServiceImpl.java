@@ -2,14 +2,18 @@ package services;
 
 import exceptions.EmployeeLimitReachedException;
 import exceptions.EmployeeNotFoundException;
+import models.Department;
 import models.Employee;
+import repositories.DepartmentRepository;
 import repositories.EmployeeRepository;
 
 public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeRepository employeeRepository;
+    private DepartmentRepository departmentRepository;
 
-    public EmployeeServiceImpl(EmployeeRepository employeeRepository){
+    public EmployeeServiceImpl(EmployeeRepository employeeRepository, DepartmentRepository departmentRepository){
         this.employeeRepository = employeeRepository;
+        this.departmentRepository = departmentRepository;
     }
 
     @Override
@@ -37,7 +41,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee updateEmployee(int id, String newDepartment, int newSalary) {
-        Employee employee = employeeRepository.updateEmployee(id, newDepartment, newSalary);
+        Department department = departmentRepository.getDepartmentByName(newDepartment);
+        Employee employee = employeeRepository.updateEmployee(id, department, newSalary);
         if(employee == null){
             throw new EmployeeNotFoundException("Employee id not found : "+ id);
         }
@@ -59,6 +64,16 @@ public class EmployeeServiceImpl implements EmployeeService {
         if(employee == null){
             throw new EmployeeNotFoundException("Employee not found id : " + id);
         }
+        return employee;
+    }
+
+    @Override
+    public Employee assignDepartment(int empId, int deptId) {
+        //find the employee with the given & find the dept with the given id;
+        Employee employee = getEmployeeById(empId);
+        Department department = departmentRepository.getDepartmentById(deptId);
+        System.out.println(department);
+        employee.setDepartment(department);
         return employee;
     }
 }

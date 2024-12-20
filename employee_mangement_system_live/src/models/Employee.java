@@ -5,17 +5,16 @@ package models;
 public class Employee {
     private int id;
     private String name;
-    private String department;
+    private Department department;
     private int salary;
     private String dob;
-    private String ememergencyContact;
+    private String emergencyContact;
 
-    public Employee(int id, String name, String department, int salary, String ememergencyContact) {
+    public Employee(int id, String name, int salary, String emergencyContact) {
         this.id = id;
         this.name = name;
-        this.department = department;
         this.salary = salary;
-        this.ememergencyContact = ememergencyContact;
+        this.emergencyContact = emergencyContact;
     }
 
     public int getId() {
@@ -34,20 +33,20 @@ public class Employee {
         this.name = name;
     }
 
-    public String getDepartment() {
+    public Department getDepartment() {
         return department;
     }
 
-    public void setDepartment(String department) {
+    public void setDepartment(Department department) {
         this.department = department;
     }
 
     public String getEmemergencyContact() {
-        return ememergencyContact;
+        return emergencyContact;
     }
 
     public void setEmemergencyContact(String ememergencyContact) {
-        this.ememergencyContact = ememergencyContact;
+        this.emergencyContact = ememergencyContact;
     }
 
     public int getSalary() {
@@ -65,7 +64,7 @@ public class Employee {
                 ", name='" + name + '\'' +
                 ", department='" + department + '\'' +
                 ", salary=" + salary +
-                ", ememergencyContact='" + ememergencyContact + '\'' +
+                ", ememergencyContact='" + emergencyContact + '\'' +
                 '}';
     }
 }
