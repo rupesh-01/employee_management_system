@@ -1,6 +1,8 @@
 package controllers;
 
+import models.Department;
 import models.Employee;
+import repositories.DepartmentRepository;
 import services.EmployeeService;
 import views.EmployeeView;
 
@@ -8,7 +10,6 @@ import java.util.Scanner;
 
 public class EmployeeController {
     private EmployeeService employeeService;
-
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
@@ -55,7 +56,7 @@ public class EmployeeController {
                     scanner.nextLine();
                     System.out.print("Enter Emergency Contact Number: ");
                     String emergencyContact = scanner.nextLine();
-                    Employee addedEmployee = employeeService.addEmployee(new Employee(id, name, department, salary, emergencyContact));
+                    Employee addedEmployee = employeeService.addEmployee(new Employee(id, name, salary, emergencyContact));
                     System.out.println("Employee added successfully! " + addedEmployee);
                     break;
                 case 2:
@@ -84,6 +85,16 @@ public class EmployeeController {
                     System.out.println(updateEmployee);
                     break;
                 case 5:
+                    System.out.println("Enter Department id : ");
+                    int departmentId = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Enter empoyee id");
+                    int employeeeId = scanner.nextInt();
+                    scanner.nextLine();
+                    Employee employee = employeeService.assignDepartment(employeeeId, departmentId);
+                    System.out.println("Assigned the dept successfully" + employee);
+                    break;
+                case 6:
                     System.out.println("Logging out from Admin Menu.");
                     return;
                 default:

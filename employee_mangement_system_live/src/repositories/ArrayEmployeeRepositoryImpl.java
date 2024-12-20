@@ -1,5 +1,6 @@
 package repositories;
 
+import models.Department;
 import models.Employee;
 
 import java.util.Arrays;
@@ -48,7 +49,7 @@ public class ArrayEmployeeRepositoryImpl implements EmployeeRepository{
     }
 
     @Override
-    public Employee updateEmployee(int id, String newDepartment, int newSalary) {
+    public Employee updateEmployee(int id, Department newDepartment, int newSalary) {
         // first find the employee
         //update the required fields
         Employee existingEmployee = getEmployeeById(id);

@@ -9,5 +9,6 @@ public interface EmployeeService {
     Employee updateEmployee(int id, String newDepartment, int newSalary);
     boolean deleteEmployee(int id);
     Employee updateEmployeeEmergencyContact(int id, String newContact);
+    Employee assignDepartment(int empId, int deptId);
 
 }
