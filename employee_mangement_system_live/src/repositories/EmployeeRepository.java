@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface EmployeeRepository {
     Employee addEmployee(Employee employee);
-    Employee getEmployeeById(int id);
+    Employee getEmployeeById(Long id);
     List<Employee> getEmployees();
-    Employee updateEmployee(int id, Department newDepartment, int newSalary);
-    boolean deleteEmployee(int id);
-    Employee updateEmployeeEmergencyContact(int id, String newContact);
+    Employee updateEmployee(Long id, Department newDepartment, int newSalary);
+    boolean deleteEmployee(Long id);
+    Employee updateEmployeeEmergencyContact(Long id, String newContact);
 }

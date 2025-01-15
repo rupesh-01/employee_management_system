@@ -45,19 +45,14 @@ public class EmployeeController {
             scanner.nextLine();
             switch (choice) {
                 case 1:
-                    System.out.print("Enter Employee ID: ");
-                    int id = scanner.nextInt();
-                    scanner.nextLine();
                     System.out.print("Enter Employee Name: ");
                     String name = scanner.nextLine();
-//                    System.out.print("Enter Department Name: ");
-//                    String department = scanner.nextLine();
                     System.out.print("Enter Salary: ");
                     int salary = scanner.nextInt();
                     scanner.nextLine();
                     System.out.print("Enter Emergency Contact Number: ");
                     String emergencyContact = scanner.nextLine();
-                    Employee addedEmployee = employeeService.addEmployee(new Employee(id, name, salary, emergencyContact));
+                    Employee addedEmployee = employeeService.addEmployee(new Employee(name, salary, emergencyContact));
                     System.out.println("Employee added successfully! " + addedEmployee);
                     break;
                 case 2:
@@ -68,14 +63,14 @@ public class EmployeeController {
                     break;
                 case 3:
                     System.out.print("Enter Employee ID to delete: ");
-                    int employeeId = scanner.nextInt();
+                    long employeeId = scanner.nextInt();
                     scanner.nextLine();
                     boolean isDeleted = employeeService.deleteEmployee(employeeId);
                     if (isDeleted) System.out.println("Employee Deleted Successfully");
                     break;
                 case 4:
                     System.out.print("Enter Employee's ID to be updated: ");
-                    int empId = scanner.nextInt();
+                    long empId = scanner.nextInt();
                     scanner.nextLine();
                     System.out.print("Enter Employee's New Department: ");
                     String newDepartment = scanner.nextLine();
@@ -90,7 +85,7 @@ public class EmployeeController {
                     int departmentId = scanner.nextInt();
                     scanner.nextLine();
                     System.out.println("Enter empoyee id");
-                    int employeeeId = scanner.nextInt();
+                    long employeeeId = scanner.nextInt();
                     scanner.nextLine();
                     Employee employee = employeeService.assignDepartment(employeeeId, departmentId);
                     System.out.println("Assigned the dept successfully" + employee);
@@ -111,13 +106,13 @@ public class EmployeeController {
             switch (choice) {
                 case 1:
                     System.out.println("Enter your Employee Id: ");
-                    int id = scanner.nextInt();
+                    long id = scanner.nextInt();
                     scanner.nextLine();
                     System.out.println(employeeService.getEmployeeById(id));
                     break;
                 case 2:
                     System.out.print("Enter Employee ID to update: ");
-                    int empId = scanner.nextInt();
+                    long empId = scanner.nextInt();
                     scanner.nextLine();
                     System.out.print("Enter New Emergency Contact: ");
                     String newContact = scanner.nextLine();
