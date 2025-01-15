@@ -3,27 +3,19 @@ package models;
 //TODO: 1. display method in Employee 2. Department model in models package
 
 public class Employee {
-    private int id;
+    private Long id;
     private String name;
     private Department department;
     private int salary;
     private String dob;
     private String emergencyContact;
 
-    public Employee(int id, String name, int salary, String emergencyContact) {
-        this.id = id;
+    public Employee(String name, int salary, String emergencyContact) {
         this.name = name;
         this.salary = salary;
         this.emergencyContact = emergencyContact;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -57,14 +49,23 @@ public class Employee {
         this.salary = salary;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", department='" + department + '\'' +
+                ", department=" + department +
                 ", salary=" + salary +
-                ", ememergencyContact='" + emergencyContact + '\'' +
+                ", dob='" + dob + '\'' +
+                ", emergencyContact='" + emergencyContact + '\'' +
                 '}';
     }
 }

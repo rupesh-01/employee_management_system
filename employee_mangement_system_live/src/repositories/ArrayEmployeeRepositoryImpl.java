@@ -34,7 +34,7 @@ public class ArrayEmployeeRepositoryImpl implements EmployeeRepository{
     }
 
     @Override
-    public Employee getEmployeeById(int id) {
+    public Employee getEmployeeById(Long id) {
         Employee foundEmployee = null;
         for(int i = 0; i < employeeCount; i++){
             if(employees[i].getId() == id){
@@ -51,7 +51,7 @@ public class ArrayEmployeeRepositoryImpl implements EmployeeRepository{
     }
 
     @Override
-    public Employee updateEmployee(int id, Department newDepartment, int newSalary) {
+    public Employee updateEmployee(Long id, Department newDepartment, int newSalary) {
         // first find the employee
         //update the required fields
         Employee existingEmployee = getEmployeeById(id);
@@ -63,7 +63,7 @@ public class ArrayEmployeeRepositoryImpl implements EmployeeRepository{
     }
 
     @Override
-    public boolean deleteEmployee(int id) {
+    public boolean deleteEmployee(Long id) {
         //find the employee with the given id
         //delete
         boolean foundEmployee = false;
@@ -82,7 +82,7 @@ public class ArrayEmployeeRepositoryImpl implements EmployeeRepository{
     }
 
     @Override
-    public Employee updateEmployeeEmergencyContact(int id, String newContact) {
+    public Employee updateEmployeeEmergencyContact(Long id, String newContact) {
         //get the employee
         //update the new details
 

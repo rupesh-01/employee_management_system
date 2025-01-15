@@ -28,7 +28,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee getEmployeeById(int id) {
+    public Employee getEmployeeById(Long id) {
         Employee employee = employeeRepository.getEmployeeById(id);
         if(employee == null){
             throw new EmployeeNotFoundException("Employee id not found" + id);
@@ -42,7 +42,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee updateEmployee(int id, String newDepartment, int newSalary) {
+    public Employee updateEmployee(Long id, String newDepartment, int newSalary) {
         Department department = departmentRepository.getDepartmentByName(newDepartment);
         Employee employee = employeeRepository.updateEmployee(id, department, newSalary);
         if(employee == null){
@@ -52,7 +52,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public boolean deleteEmployee(int id) {
+    public boolean deleteEmployee(Long id) {
         boolean isEmployeeDeleted = employeeRepository.deleteEmployee(id);
         if(isEmployeeDeleted == false){
             throw new EmployeeNotFoundException("Employee not found id : " + id);
@@ -61,7 +61,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee updateEmployeeEmergencyContact(int id, String newContact) {
+    public Employee updateEmployeeEmergencyContact(Long id, String newContact) {
         Employee employee = employeeRepository.updateEmployeeEmergencyContact(id, newContact);
         if(employee == null){
             throw new EmployeeNotFoundException("Employee not found id : " + id);
@@ -70,7 +70,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee assignDepartment(int empId, int deptId) {
+    public Employee assignDepartment(Long empId, int deptId) {
         //find the employee with the given & find the dept with the given id;
         Employee employee = getEmployeeById(empId);
         Department department = departmentRepository.getDepartmentById(deptId);
