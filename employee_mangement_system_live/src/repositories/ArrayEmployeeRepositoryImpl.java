@@ -3,7 +3,9 @@ package repositories;
 import models.Department;
 import models.Employee;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ArrayEmployeeRepositoryImpl implements EmployeeRepository{
     private Employee[] employees;
@@ -43,9 +45,9 @@ public class ArrayEmployeeRepositoryImpl implements EmployeeRepository{
     }
 
     @Override
-    public Employee[] getEmployees() {
+    public List<Employee> getEmployees() {
         Employee[] copiedEmployee = Arrays.copyOf(employees, employeeCount);
-        return copiedEmployee;
+        return null;
     }
 
     @Override

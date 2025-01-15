@@ -6,6 +6,7 @@ import repositories.DepartmentRepository;
 import services.EmployeeService;
 import views.EmployeeView;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeController {
@@ -49,8 +50,8 @@ public class EmployeeController {
                     scanner.nextLine();
                     System.out.print("Enter Employee Name: ");
                     String name = scanner.nextLine();
-                    System.out.print("Enter Department Name: ");
-                    String department = scanner.nextLine();
+//                    System.out.print("Enter Department Name: ");
+//                    String department = scanner.nextLine();
                     System.out.print("Enter Salary: ");
                     int salary = scanner.nextInt();
                     scanner.nextLine();
@@ -60,7 +61,7 @@ public class EmployeeController {
                     System.out.println("Employee added successfully! " + addedEmployee);
                     break;
                 case 2:
-                    Employee[] employees = employeeService.getEmployees();
+                    List<Employee> employees = employeeService.getEmployees();
                     for (Employee employee : employees) {
                         System.out.println(employee);
                     }

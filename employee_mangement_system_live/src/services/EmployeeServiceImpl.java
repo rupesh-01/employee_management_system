@@ -7,6 +7,8 @@ import models.Employee;
 import repositories.DepartmentRepository;
 import repositories.EmployeeRepository;
 
+import java.util.List;
+
 public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeRepository employeeRepository;
     private DepartmentRepository departmentRepository;
@@ -35,7 +37,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee[] getEmployees() {
+    public List<Employee> getEmployees() {
         return employeeRepository.getEmployees();
     }
 

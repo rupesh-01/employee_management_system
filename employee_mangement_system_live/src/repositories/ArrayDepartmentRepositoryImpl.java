@@ -2,6 +2,10 @@ package repositories;
 
 import models.Department;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class ArrayDepartmentRepositoryImpl implements  DepartmentRepository{
     Department[] departments;
 
@@ -11,7 +15,6 @@ public class ArrayDepartmentRepositoryImpl implements  DepartmentRepository{
         departments[0] = new Department(1, "HR", "BLR", "200");
         departments[1] = new Department(2, "FINANCE", "BLR", "200");
         departments[2] = new Department(3, "ENGINEERING", "BLR", "200");
-
     }
 
     @Override
@@ -25,8 +28,8 @@ public class ArrayDepartmentRepositoryImpl implements  DepartmentRepository{
     }
 
     @Override
-    public Department[] getAllDepartment() {
-        return new Department[0];
+    public List<Department> getAllDepartment() {
+        return new ArrayList<>(Arrays.asList(departments));
     }
 
     @Override
