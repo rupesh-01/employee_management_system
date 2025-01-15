@@ -10,23 +10,23 @@ import java.util.List;
 import java.util.Map;
 
 public class MapEmployeeRepositoryImpl implements EmployeeRepository {
-    private final Map<Integer, Employee> employeeMap;
+    private final Map<Long, Employee> employeeMap;
+    private Long id;
 
     public MapEmployeeRepositoryImpl() {
         this.employeeMap = new HashMap<>();
+        this.id = 1L;
     }
 
     @Override
     public Employee addEmployee(Employee employee) {
-        if(employeeMap.containsKey(employee.getId())){
-            throw new RuntimeException("Duplicate Id not allowed");
-        }
-        employeeMap.put(employee.getId(), employee);
-        return employee;
+        employee.setId(this.id);
+        employeeMap.put(this.id, employee);
+        return employeeMap.get(id++);
     }
 
     @Override
-    public Employee getEmployeeById(int id) {
+    public Employee getEmployeeById(Long id) {
         return employeeMap.get(id);
     }
 
@@ -37,7 +37,7 @@ public class MapEmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
-    public Employee updateEmployee(int id, Department newDepartment, int newSalary) {
+    public Employee updateEmployee(Long id, Department newDepartment, int newSalary) {
         //using the key get the employee
         //modify the current employee object
         Employee existingEmployee = employeeMap.get(id);
@@ -49,7 +49,7 @@ public class MapEmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
-    public boolean deleteEmployee(int id) {
+    public boolean deleteEmployee(Long id) {
         if(employeeMap.containsKey(id)){
             employeeMap.remove(id);
             return true;
@@ -58,7 +58,7 @@ public class MapEmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
-    public Employee updateEmployeeEmergencyContact(int id, String newContact) {
+    public Employee updateEmployeeEmergencyContact(Long id, String newContact) {
         Employee employee = employeeMap.get(id);
         if(employee!=null){
             employee.setEmemergencyContact(newContact);
