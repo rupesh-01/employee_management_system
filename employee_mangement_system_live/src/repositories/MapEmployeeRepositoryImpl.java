@@ -42,7 +42,7 @@ public class MapEmployeeRepositoryImpl implements EmployeeRepository {
         //modify the current employee object
         Employee existingEmployee = employeeMap.get(id);
         if(existingEmployee!=null){
-            existingEmployee.setDepartment(newDepartment);
+            //existingEmployee.setDepartment(newDepartment);
             existingEmployee.setSalary(newSalary);
         }
         return existingEmployee;

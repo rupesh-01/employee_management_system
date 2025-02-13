@@ -50,9 +50,13 @@ public class EmployeeController {
                     System.out.print("Enter Salary: ");
                     int salary = scanner.nextInt();
                     scanner.nextLine();
+                    System.out.print("Enter Department: ");
+                    String department = scanner.nextLine();
+                    System.out.print("Enter DOB(MM/DD/YY): ");
+                    String dob = scanner.nextLine();
                     System.out.print("Enter Emergency Contact Number: ");
                     String emergencyContact = scanner.nextLine();
-                    Employee addedEmployee = employeeService.addEmployee(new Employee(name, salary, emergencyContact));
+                    Employee addedEmployee = employeeService.addEmployee(new Employee(name,department, salary, dob, emergencyContact));
                     System.out.println("Employee added successfully! " + addedEmployee);
                     break;
                 case 2:

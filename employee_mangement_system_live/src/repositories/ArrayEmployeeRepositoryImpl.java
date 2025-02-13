@@ -56,7 +56,7 @@ public class ArrayEmployeeRepositoryImpl implements EmployeeRepository{
         //update the required fields
         Employee existingEmployee = getEmployeeById(id);
         if(existingEmployee != null){
-            existingEmployee.setDepartment(newDepartment);
+            //existingEmployee.setDepartment(newDepartment);
             existingEmployee.setSalary(newSalary);
         }
         return existingEmployee;

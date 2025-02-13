@@ -75,7 +75,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee employee = getEmployeeById(empId);
         Department department = departmentRepository.getDepartmentById(deptId);
         System.out.println(department);
-        employee.setDepartment(department);
+        employee.setDepartment("HR");
         return employee;
     }
 }
